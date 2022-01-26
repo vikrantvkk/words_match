@@ -1,0 +1,71 @@
+INTRODUCTION
+_____________
+
+The purpose of this project is to find one or more strings from a list of strings if letters are matching even if they
+are not in same order. For example, the given list of strings could be as follows:
+["helloworld", "foo", "bar", "stylight_team", "seo"]
+Calling the find function with a parameter of "eos" yields string "seo". If more than one string in the string list
+matches the input, then it returns all of them.
+
+REQUIREMENTS
+_____________
+
+Python 3.8
+pytest 3.8.0
+
+HOW TO RUN MAIN PROGRAM?
+_________________________
+
+cd stylight
+
+python3 main.py
+
+
+HOW TO RUN UNITTEST?
+_____________________
+
+cd stylight
+
+pytest
+
+APPROACH
+________
+
+First Approach: STORING WORDS IN A DICTIONARY WITH SORTED STRING AS KEY(Implemented)
+------------------------------------------------------------
+1. Initialize an empty dictionary
+2. Create hash key by sorting given string in the input list
+2. Add the given string(to list and then ) to the dictionary with key created in above step
+2. If hash key of string is already in the dictionary then add it to the list
+
+To find the matching string/s :
+1. Create hash key by sorting given string to be searched
+2. If key is present in the dictionary return the list of string present in that key, otherwise return empty list
+
+Time complexity:
+Sorting a list of strings: O(nlogn)
+Sorting m strings: O(m ( nlogn )
+
+Find matching strings = Creating key from the given string + Search the key in dictionary
+Creating key from the given string: O(nlogn)
+Search the key in dictionary: O(1)
+Overall find complexity:  O(nlogn) + O(1) = O(nlogn)
+
+Second Approach: CREATING DICTIONARY FOR EACH STRING, WITH LETTER AS KEY AND COUNT AS VALUE FOR NUMBER OF OCCURENCE
+---------------------------------------------------------------
+1. Initialize an empty list
+2. Create a dictionary with letters of string as key and value as count(initialize to 1)
+3. In a string if a letter is occcuring more than once increment the count
+4. Add this dictionary to the list
+
+To find the matching string/s :
+1. Create a dictionary of the string to be matched as explained above
+2. Iterate over list initialized to store strings dictionary
+3. Match all the letters with the count
+4. Return the list of matched
+
+Time Complexity:
+Initializing all the strings: O (m x n)
+
+Find matching strings: m X (Comparing given string with one of the strings in the list) = O (m x n)
+
